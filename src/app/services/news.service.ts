@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { News } from '../models/news.model';
+
+const baseUrl = 'http://localhost:8080/api/news';
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +12,11 @@ export class NewsService {
 
   constructor(private http:HttpClient) { }
 
-  getAll(): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(baseUrl);
+  getAll(): Observable<News[]> {
+    return this.http.get<News[]>(baseUrl);
   }
 
-  get(id: any): Observable<Tutorial> {
+  get(id: any): Observable<News> {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
@@ -32,7 +36,7 @@ export class NewsService {
     return this.http.delete(baseUrl);
   }
 
-  findByTitle(title: any): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(`${baseUrl}?title=${title}`);
+  findByTitle(title: any): Observable<News[]> {
+    return this.http.get<News[]>(`${baseUrl}?title=${title}`);
   }
 }
