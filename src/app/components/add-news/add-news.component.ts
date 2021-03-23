@@ -11,7 +11,7 @@ export class AddNewsComponent implements OnInit {
   news: News = {
     title: '',
     content: '',
-    image: ''
+    published: false
   };
 
   submitted = false;
@@ -42,7 +42,8 @@ export class AddNewsComponent implements OnInit {
     this.submitted = false;
     this.news = {
       title: '',
-      content: ''
+      content: '',
+      published: false
     };
   }
 
