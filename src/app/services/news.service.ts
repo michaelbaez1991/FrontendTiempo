@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { News } from '../models/news.model';
 
-const baseUrl = 'http://localhost:8080/api/news';
+const baseUrl = '/api/news';
 
 @Injectable({
   providedIn: 'root'
@@ -21,11 +21,11 @@ export class NewsService {
   }
 
   create(data: any): Observable<any> {
-    return this.http.post(baseUrl, data);
+    return this.http.post(`${baseUrl}/create`, data);
   }
 
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.post(`${baseUrl}/${id}`, data);
   }
 
   delete(id: any): Observable<any> {

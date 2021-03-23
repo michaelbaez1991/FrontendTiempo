@@ -42,18 +42,6 @@ export class ListNewsComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  removeAllNews(): void {
-    this.newsService.deleteAll()
-      .subscribe(
-        response => {
-          console.log(response);
-          this.refreshList();
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
   searchTitle(): void {
     this.newsService.findByTitle(this.title)
       .subscribe(

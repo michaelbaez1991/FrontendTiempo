@@ -24,7 +24,8 @@ export class AddNewsComponent implements OnInit {
   saveNews(): void {
     const data = {
       title: this.news.title,
-      description: this.news.content
+      content: this.news.content,
+      published: false
     };
 
     this.newsService.create(data)

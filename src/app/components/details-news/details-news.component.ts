@@ -15,6 +15,7 @@ export class DetailsNewsComponent implements OnInit {
     published: false
   };
   message = '';
+  others: any;
 
   constructor(
     private newsService: NewsService,
@@ -58,7 +59,12 @@ export class DetailsNewsComponent implements OnInit {
     }
   
     updateNews(): void {
-      this.newsService.update(this.currentNews.id, this.currentNews)
+      this.others = {
+        title: this.currentNews.title,
+        content: this.currentNews.content
+      };
+
+      this.newsService.update(this.currentNews.id, this.others)
         .subscribe(
           response => {
             console.log(response);
